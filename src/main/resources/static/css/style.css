@@ -1,0 +1,75 @@
+.container{
+    margin: 1.5rem;
+}
+
+/*add-major start*/
+.form-group{
+	margin:1.5rem auto;
+}
+
+.form-control>label{
+	display: block;
+}
+
+.form-control{
+	margin-bottom:1rem;
+}
+
+input,textarea{
+	width:100%;
+}
+
+input{
+	height: 2rem;	
+}
+
+.btn-create{
+	width: 5rem;
+	height: 1.8rem;
+	background-color: mediumpurple;
+	color: white;	
+	border-radius: 10px;
+}
+
+.action{
+	
+	text-align: right;
+}
+/*add-major end*/
+
+/*major-list start*/
+.title{
+    color: purple;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    margin: 1rem auto;
+    border:  1px solid grey;
+    border-collapse: collapse;    
+    width: 60rem;
+}
+
+table,td,th{
+    border:1px solid grey;
+}
+thead{
+    background-color: purple;
+    color:white;
+}
+tfoot{
+    background-color: grey;
+    color: white;
+}
+td,th{	
+	font-size: 15px;
+    padding: 0.5rem;
+}
+/*major-list end*/
