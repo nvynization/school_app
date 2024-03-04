@@ -11,13 +11,14 @@
         <h3 class="title">New Major Form</h3>
         <div class="form-group">
             <form action="/create" method="post">
+				<input type="hidden" name="id" th:value="${major.id}">
                 <div class="form-control">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" th:value="${major.name}" id="name" required>
                 </div>
                 <div class="form-control">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" rows="10"></textarea>
+                    <textarea name="description" th:text="${major.description}" id="description" rows="10"></textarea>
                 </div>
                 <div class="action">
                     <button class="btn-create" type="submit">Create</button>

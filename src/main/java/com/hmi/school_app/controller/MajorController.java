@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.hmi.school_app.entity.Major;
@@ -12,40 +13,45 @@ import com.hmi.school_app.service.MajorService;
 
 @Controller
 public class MajorController {
-	
+
 	private final MajorService majorService;
-	
+
 	public MajorController(MajorService majorService) {
 		super();
 		this.majorService = majorService;
 	}
 
-	@GetMapping("/all")//dopost doget methods
+	@GetMapping("/all") // dopost doget methods
 	public String all(Model model) {// model is supported by spring mvc framework
-		
-		List<Major> majorList = majorService.getAllMajors();				
-		model.addAttribute("majorList",majorList);
+
+		List<Major> majorList = majorService.getAllMajors();
+		model.addAttribute("majorList", majorList);
 		return "major-list";
 	}
-	
-	//post is data create in server
-	/*@PostMapping("/create")
-	public String create() {		
-		return "add-major.html";
-	}*/
-	
+
+	// post is data create in server
+	/*
+	 * @PostMapping("/create") public String create() { return "add-major.html"; }
+	 */
+
 	@GetMapping("/create")
 	public String create(Model model) {
-		model.addAttribute("major",new Major());
+		model.addAttribute("major", new Major());
 		return "add-major";
 	}
-	
-	//post is data create in server
+
+	// post is data create in server
 	@PostMapping("/create")
-	public String postMajor(@ModelAttribute/*(name ="name") can be specify*/ Major major) {
+	public String postMajor(@ModelAttribute /* (name ="name") can be specify */ Major major) {
 		Major createdMajor = majorService.saveMajor(major);
-		System.out.println("created major id = "+createdMajor.getId());
-		
-		return "redirect:/all";		
+		System.out.println("created major id = " + createdMajor.getId());
+		return "redirect:/all";
+	}
+
+	@GetMapping("/update/{majorId}") /* major id can be dynamic so path variable is used. */
+	public String showUpdateForm(@PathVariable Long majorId, Model model) {
+		Major major = majorService.getMajorById(majorId);
+		model.addAttribute("major", major);
+		return "add-major";
 	}
 }
