@@ -30,7 +30,10 @@
                     <td th:text="${major.id}"></td>
                     <td th:text="${major.name}"></td>
                     <td th:text="${major.description}"></td>
-                    <td><a th:href="@{'/update/'+${major.id}}">Edit</a></td>
+                    <td>
+						<a th:href="@{'/update/'+${major.id}}"> Edit </a> |
+						<a th:href="@{'/delete/'+${major.id}}"> Delete </a>
+                    </td>
                     <!--@ is location sign and this link is dynamic-->
                 </tr>
                 

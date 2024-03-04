@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.hmi.school_app.entity.Major;
 import com.hmi.school_app.service.MajorService;
 
 @Controller
+@RequestMapping("/major")
 public class MajorController {
 
 	private final MajorService majorService;
@@ -21,9 +22,8 @@ public class MajorController {
 		this.majorService = majorService;
 	}
 
-	@GetMapping("/all") // dopost doget methods
+	@GetMapping("/all") // dopost doget methods in javaEE
 	public String all(Model model) {// model is supported by spring mvc framework
-
 		List<Major> majorList = majorService.getAllMajors();
 		model.addAttribute("majorList", majorList);
 		return "major-list";
@@ -54,4 +54,12 @@ public class MajorController {
 		model.addAttribute("major", major);
 		return "add-major";
 	}
+	
+	@GetMapping("/delete/{majorId}") 
+	public String delete(@PathVariable Long majorId) {
+		majorService.deleteMajorById(majorId);		
+		return "redirect:/all";		
+	}
+	
+	
 }

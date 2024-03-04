@@ -31,8 +31,7 @@ input{
 	border-radius: 10px;
 }
 
-.action{
-	
+.action{	
 	text-align: right;
 }
 /*add-major end*/
@@ -71,5 +70,8 @@ tfoot{
 td,th{	
 	font-size: 15px;
     padding: 0.5rem;
+}
+a{
+	padding: 1rem;
 }
 /*major-list end*/

@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-
 import com.hmi.school_app.DAO.MajorDAO;
 import com.hmi.school_app.entity.Major;
 
 @Service
 public class MajorService {
+	
 	private final MajorDAO majorDAO;
 
 	public MajorService(MajorDAO majorDAO) {
@@ -36,8 +36,5 @@ public class MajorService {
 	
 	public void deleteMajorById(Long majorId) {
 		majorDAO.deleteById(majorId);
-	}
-	
-	
-	
+	}	
 }

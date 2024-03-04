@@ -4,19 +4,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
+	private Long id;	
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String fullname;
 	private Integer year;
+	
+	@ManyToOne //major to student
+	private Major major;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
@@ -69,4 +72,12 @@ public class Student {
 	public void setYear(Integer year) {
 		this.year = year;
 	}
+
+	public Major getMajor() {
+		return major;
+	}
+
+	public void setMajor(Major major) {
+		this.major = major;
+	}	
 }

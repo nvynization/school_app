@@ -1,9 +1,13 @@
 package com.hmi.school_app.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Major {//entity is bean in java and table in database
@@ -13,6 +17,10 @@ public class Major {//entity is bean in java and table in database
 	private Long id;	
 	private String name;
 	private String description;
+	
+	@OneToMany //student to major
+	private List<Student> Students = new ArrayList<>();
+	
 	
 	public Major() {
 		// TODO Auto-generated constructor stub
@@ -40,5 +48,13 @@ public class Major {//entity is bean in java and table in database
 
 	public void setDescription(String description) {
 		this.description = description;
-	}	
+	}
+
+	public List<Student> getStudents() {
+		return Students;
+	}
+
+	public void setStudents(List<Student> students) {
+		Students = students;
+	}		
 }
