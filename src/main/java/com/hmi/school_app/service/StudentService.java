@@ -32,4 +32,8 @@ public class StudentService {
 		return studentDAO.save(student);
 	}
 	
+	public void deleteStudentById(Long studentId) {
+		studentDAO.deleteById(studentId);
+	}
+	
 }

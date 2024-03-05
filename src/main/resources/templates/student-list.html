@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="title">Student Information Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+					<th>Year</th>
+					<th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}"><!--th:each is same with end if for loop-->
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.firstname}"></td>
+                    <td th:text="${student.lastname}"></td>
+                    <td th:text="${student.fullname}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td th:text="${student.year}"></td>
+                    <td>
+						<a> View </a>
+                    </td>
+                    <!--@ is location sign and this link is dynamic-->
+                </tr>                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+					<th>Year</th>
+					<th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+</body>
+</html>

@@ -4,8 +4,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hmi.school_app.entity.Major;
 import com.hmi.school_app.entity.Student;
 import com.hmi.school_app.service.MajorService;
 import com.hmi.school_app.service.StudentService;
@@ -43,6 +48,22 @@ public class StudentController {
 		model.addAttribute("majors",majorService.getAllMajors());
 		return "add-student";
 	}
+	
+	@PostMapping("/create")
+	public String newStudent(@ModelAttribute Student student,@RequestParam Long major_id) {
+		//TODO: process POST request
+		Major major = majorService.getMajorById(major_id);
+		
+		//association major and student
+		major.getStudents().add(student);
+		student.setMajor(major);
+		
+		studentService.saveStudent(student);
+		majorService.saveMajor(major);
+		
+		return "redirect:/student/all";
+	}
+	
 	
 	
 }
