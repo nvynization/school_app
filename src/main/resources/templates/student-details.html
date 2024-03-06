@@ -1,0 +1,25 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<section>
+    <div class="container">
+		<h3 th:text="${'ID : ###'+(student.id)}"></h3>
+        <h3 th:text="${student.fullname}"></h3>
+        <h3>Major Information :</h3>
+        <p>Major Name: <span th:text="${student.major.id}"></span></p>
+        <p>Major Name: <span th:text="${student.major.name}"></span></p>
+        <h3>Major Description: </h3>
+        <p th:text="${student.major.description}"></p>
+        
+        <button class="btn-back"><a href="/student/all">Back</a></button>
+        
+    </div>
+    </section>
+    
+</body>
+</html>
