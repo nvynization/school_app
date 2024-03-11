@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<section>
+    <div class="container">
+		<h3 class="title" th:text="${teacher.fullname}"></h3>
+		<h3 class="title" th:text="${teacher.role}"></h3>
+		<h3 class="title" th:text="${teacher.subject}"></h3>
+        <h3 class="title">Student Assign Form</h3>
+        <div class="form-group">
+            <form action="/teacher/assign" method="post">
+				<input type="hidden" name="teacherId" th:value="${teacher.id}">
+                <div class="form-control">
+                    <label for="name">Student</label>
+                    <select name="studentId">
+						<option th:each="student : ${students}" th:value="${student.id}" th:text="${student.email}"></option>
+					</select>
+                </div>
+                <div class="action">
+                    <button class="btn-create" type="submit">Assign</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

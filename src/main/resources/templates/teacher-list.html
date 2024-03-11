@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<section>
+    <div class="container">
+        <h3 class="title">Student Information Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="teacher : ${teachers}"><!--th:each is same with end if for loop-->
+                    <td th:text="${teacher.id}"></td>
+                    <td th:text="${teacher.firstname}"></td>
+                    <td th:text="${teacher.lastname}"></td>
+                    <td th:text="${teacher.fullname}"></td>
+                    <td th:text="${teacher.email}"></td>
+                    <td th:text="${teacher.subject}"></td>
+                    <td th:text="${teacher.role}"></td>
+                    <td>
+						<a th:href="@{'/teacher/'+${teacher.id}}"> View </a>|
+						<a th:href="@{'/teacher/'+${teacher.id}+'/assign'}"> Assign </a>
+                    </td>
+                    <!--@ is location sign and this link is dynamic-->
+                </tr>                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+					<th>Subject</th>
+					<th>Role</th>
+					<th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+        <button><a th:href="@{'/teacher/create'}">Create</a></button>
+    </div>
+    </section>
+</body>
+</html>

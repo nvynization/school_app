@@ -1,9 +1,13 @@
 package com.hmi.school_app.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Teacher {
@@ -18,6 +22,9 @@ public class Teacher {
 	private String email;
 	private String subject;
 	private String role;
+	
+	@ManyToMany(mappedBy ="teachers")//mappedby ka ta bat ka pl htea ya tr
+	private Set<Student> students = new HashSet<>();
 	
 	public Teacher() {
 		// TODO Auto-generated constructor stub
@@ -77,5 +84,14 @@ public class Teacher {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}	
+	
 }

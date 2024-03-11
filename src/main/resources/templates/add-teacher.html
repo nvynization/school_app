@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<section>
+    <div class="container">
+        <h3 class="title">New Teacher Form</h3>
+        <div class="form-group">
+            <form action="/teacher/create" method="post">
+				<!--<input type="hidden" name="id" th:value="${student.id}">-->
+                <div class="form-control">
+                    <label for="firstname">FirstName</label>
+                    <input type="text" name="firstname" th:value="${teacher.firstname}" id="firstname" required>
+                </div>
+                <div class="form-control">
+                    <label for="lastname">LastName</label>
+                    <input type="text" name="lastname" th:value="${teacher.lastname}" id="lastname" required>
+                </div>
+                <div class="form-control">
+                    <label for="fullname">FullName</label>
+                    <input type="text" name="fullname" th:value="${teacher.fullname}" id="fullname" required>
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" th:value="${teacher.email}" id="email" required>
+                </div>
+                <div class="form-control">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject" id="subject" required>
+                </div>
+                
+                <div class="form-control">
+                    <label for="role">Role</label>
+                    <input type="text" name="role" id="role" required>
+                </div>
+                
+                <div class="action">
+                    <button class="btn-create" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+</body>
+</html>
