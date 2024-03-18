@@ -8,13 +8,50 @@
 <body>
 	<section>
     <div class="container">
-		<h3 th:text="${'ID : ###'+(student.id)}"></h3>
-        <h3 th:text="${student.fullname}"></h3>
+		<h3 th:text="${'ID : '+(student.id)+' '+(student.fullname)}"></h3>
+        <!--<h3 th:text="${student.fullname}"></h3>-->
         <h3>Major Information :</h3>
         <p>Major Name: <span th:text="${student.major.id}"></span></p>
         <p>Major Name: <span th:text="${student.major.name}"></span></p>
         <h3>Major Description: </h3>
         <p th:text="${student.major.description}"></p>
+        
+        <h3 class="title">Current Teachers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="teacher : ${student.teachers}"><!--th:each is same with end if for loop-->
+                    <td th:text="${teacher.id}"></td>
+                    <td th:text="${teacher.firstname}"></td>
+                    <td th:text="${teacher.lastname}"></td>
+                    <td th:text="${teacher.fullname}"></td>
+                    <td th:text="${teacher.email}"></td>
+                    <td th:text="${teacher.subject}"></td>
+                    <td th:text="${teacher.role}"></td>
+                </tr>                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+					<th>Subject</th>
+					<th>Role</th>
+                </tr>
+            </tfoot>
+        </table>
         
         <button class="btn-back"><a href="@{'/student/all'}">Back</a></button>
         

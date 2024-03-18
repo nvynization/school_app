@@ -47,7 +47,7 @@ input{
 
 /*major-list start*/
 .title{
-    color: plum;
+    color: #50666B;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 2rem;
@@ -57,6 +57,7 @@ input{
 
 body{
     font-family: 'Times New Roman', Times, serif;
+    background-color: lightgray;
 }
 
 table{
